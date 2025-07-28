@@ -1,0 +1,22 @@
+﻿.breadcrumb {
+	background-color: rgb(244,246,249);
+}
+.breadcrumb a {
+	color: #6c757d;
+}
+.breadcrumb a:hover {
+	color: dodgerblue;
+}
+.main-header {
+	border-bottom: 0px;
+}
+.card {
+	box-shadow: none !important;
+	border-radius: 10px;
+}
+.card-header {
+	border-bottom: none !important;
+}
+.main-footer {
+	border-top: none !important;
+}

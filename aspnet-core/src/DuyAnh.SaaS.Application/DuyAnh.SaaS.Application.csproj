@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <VersionPrefix>1.0.0.0</VersionPrefix>
+    <TargetFramework>net9.0</TargetFramework>
+    <AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>
+    <AssemblyName>DuyAnh.SaaS.Application</AssemblyName>
+    <PackageId>DuyAnh.SaaS.Application</PackageId>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <RootNamespace>DuyAnh.SaaS</RootNamespace>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DuyAnh.SaaS.Application.Shared\DuyAnh.SaaS.Application.Shared.csproj" />
+    <ProjectReference Include="..\DuyAnh.SaaS.Core\DuyAnh.SaaS.Core.csproj" />
+    <ProjectReference Include="..\DuyAnh.SaaS.EntityFrameworkCore\DuyAnh.SaaS.EntityFrameworkCore.csproj" />
+  </ItemGroup>
+</Project>

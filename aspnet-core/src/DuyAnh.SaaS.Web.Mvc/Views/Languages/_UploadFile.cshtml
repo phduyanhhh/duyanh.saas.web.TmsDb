@@ -1,0 +1,16 @@
+﻿@using DuyAnh.SaaS.Web.Areas.App.Models.Common.Modals
+@{
+	Layout = null;
+}
+@await Html.PartialAsync("~/Areas/App/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("UploadFileLanguage")))
+<div class="modal-body">
+	<form name="UploadLanguagesForm" id="UploadLanguagesForm">
+		<div class="custom-file">
+			<input type="file" name="fileInput" class="custom-file-input" id="customFile">
+			<label class="custom-file-label" for="customFile">Choose file</label>
+		</div>
+
+
+	</form>
+	@await Html.PartialAsync("~/Views/Shared/Modals/_ModalFooterWithSaveAndCancel.cshtml")
+</div>

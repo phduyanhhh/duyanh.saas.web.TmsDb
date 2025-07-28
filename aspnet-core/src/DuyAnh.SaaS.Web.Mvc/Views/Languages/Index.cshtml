@@ -1,0 +1,82 @@
+﻿@using DuyAnh.SaaS.Web.Startup
+@* @model VietNamTourism.Web.Models.Roles.RoleListViewModel *@
+@{
+  ViewBag.Title = L("Languages");
+  ViewBag.CurrentPageName = PageNames.Languages;
+  ViewBag.TitleLevel2 = L("Languages");
+  ViewBag.UrlLevel2 = Url.Action("Index", "Languages");
+}
+@section scripts
+{
+  <environment names="Development">
+    <script src="~/view-resources/Views/Languages/Index.js" asp-append-version="true"></script>
+  </environment>
+
+  <environment names="Staging,Production">
+    <script src="~/view-resources/Views/Languages/Index.min.js" asp-append-version="true"></script>
+  </environment>
+}
+
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <div class="row">
+              <div class="col-md-6">
+                <!--Use for bulk actions-->
+                @await Html.PartialAsync("~/Views/Languages/Index.AdvancedSearch.cshtml")
+              </div>
+              <div class="col-md-6">
+                <div class="d-flex justify-content-end mb-2">
+                  <div class="mr-2">
+                    <a href="javascript:;" data-toggle="modal" id="CreateLanguages" data-target="#LanguagesCreateModal" class="btn bg-blue float-sm-right">
+                      <i class="fa fa-plus-square"></i>
+                      @L("Create")
+                    </a>
+                  </div>
+                  <div>
+                    <div class="btn-group float-sm-right">
+                      <button type="button" id="EnterDataUploadFile" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        @L("EnterData")
+                      </button>
+                      <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a class="dropdown-item" id="UploadInputLanguages" href="#">@L("EnterData")</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                          <div class="dropdown-item">
+                            (@L("DownloadSampleJsonFile"), <a href="/Languages/DownloadJson">@L("ClickHere")</a>)
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table id="LanguagesTable" class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>@L("Key")</th>
+                    <th>@L("Value")</th>
+                    <th>@L("LanguageName")</th>
+                    <th>@L("Source")</th>
+                    <th style="width: 200px">@L("Actions")</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

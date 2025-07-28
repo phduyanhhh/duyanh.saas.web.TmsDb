@@ -1,0 +1,34 @@
+﻿@using DuyAnh.SaaS.Web.Areas.App.Models.Common.Modals
+@{
+	Layout = null;
+}
+@await Html.PartialAsync("~/Areas/App/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("EditLanguage")))
+
+<div class="modal-body">
+	<form id="EditLanguagesForm" name="EditLanguagesForm">
+		<div class="mb-3">
+			<label for="Key" class="form-label label text-secondary">@L("Key") </label><span class="text-danger">*</span>
+			<input id="Key" class="form-control " type="text"
+						 name="Key" required maxlength="256"
+						 placeholder="@L("InputKeyLanguage")">
+		</div>
+		<div class="mb-3">
+			<label for="Value" class="form-label label text-secondary">@L("Value") </label><span class="text-danger">*</span>
+			<input id="Value" class="form-control " type="text"
+						 name="Value" required maxlength="256"
+						 placeholder="@L("InputValueLanguage")">
+		</div>
+		<div class="mb-3">
+			<label for="LanguageName" class="form-label label text-secondary">@L("LanguageName") </label><span class="text-danger">*</span>
+			<input id="LanguageName" class="form-control LanguageName" type="text"
+						 name="LanguageName" required maxlength="256"
+						 placeholder="@L("InputLanguageName")">
+		</div>
+		<div class="mb-3">
+			<label for="Source" class="form-label label text-secondary">@L("Source") </label><span class="text-danger">*</span>
+			<input id="Source" class="form-control " type="text"
+						 name="Source" required maxlength="256"
+						 placeholder="@L("InputSourceLanguage")">
+		</div>
+	</form>
+</div>

@@ -1,0 +1,61 @@
+﻿@using Abp.Configuration.Startup
+@using Abp.Web.Mvc.Alerts
+@using Abp.Web.Security.AntiForgery
+@using DuyAnh.SaaS.Web.Resources
+@using Abp.Localization
+@inject IAbpAntiForgeryManager AbpAntiForgeryManager
+@inject IMultiTenancyConfig MultiTenancyConfig
+@inject IWebResourceManager WebResourceManager
+@inject IAlertManager AlertManager
+@inject ILanguageManager LanguageManager
+@inject ILocalizationManager L
+@{
+	AbpAntiForgeryManager.SetCookie(Context);
+
+	var pageTitle = !string.IsNullOrWhiteSpace(ViewBag.Title) ? ViewBag.Title + " / " : "";
+	pageTitle += "DuyAnh.SaaS";
+}
+<!DOCTYPE html>
+<html lang="@LanguageManager.CurrentLanguage.Name">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+	<title>@pageTitle</title>
+
+	<!-- Style -->
+	@await Html.PartialAsync("_Styles.cshtml")
+	@RenderSection("styles", required: false)
+	<!-- End -->
+</head>
+<body class="hold-transition sidebar-mini">
+	<div class="wrapper">
+		@await Html.PartialAsync("_Header.cshtml")
+		@await Html.PartialAsync("_SideBar.cshtml")
+		<div class="content-wrapper">
+			@await Html.PartialAsync("_Alerts.cshtml")
+			<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="/">@L("Home")</a></li>
+					@if(!string.IsNullOrEmpty(ViewBag.TitleLevel2)) {
+						<li class="breadcrumb-item active" aria-current="page"><a href="@ViewBag.UrlLevel2">@ViewBag.TitleLevel2</a></li>
+					}
+					@if (!string.IsNullOrEmpty(ViewBag.TitleLevel3))
+					{
+						<li class="breadcrumb-item active" aria-current="page"><a href="@ViewBag.UrlLevel3">@ViewBag.TitleLevel3</a></li>
+					}
+				</ol>
+			</nav>
+			@RenderBody()
+		</div>
+		@await Html.PartialAsync("_Footer.cshtml")
+	</div>
+
+	<!-- Scripts -->
+	@await Html.PartialAsync("_Scripts.cshtml")
+	@RenderSection("scripts", required: false)
+	@WebResourceManager.RenderScripts()
+	<!-- End -->
+</body>
+</html>
