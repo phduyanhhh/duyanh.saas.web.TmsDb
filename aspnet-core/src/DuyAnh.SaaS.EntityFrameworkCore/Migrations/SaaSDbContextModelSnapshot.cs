@@ -1616,17 +1616,20 @@ namespace DuyAnh.SaaS.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<string>("Name")
-                        .HasColumnType("text");
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("character varying(255)");
 
                     b.Property<int?>("ParentId")
                         .HasColumnType("integer");
 
                     b.Property<string>("Slug")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
 
-                    b.ToTable("PlaceCategories");
+                    b.ToTable("PlaceCategories", "Tourism");
                 });
 
             modelBuilder.Entity("DuyAnh.SaaS.MultiTenancy.Tenant", b =>
